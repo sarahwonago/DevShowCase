@@ -55,6 +55,7 @@ class Project(models.Model):
     description = models.TextField()
     demo_link = models.URLField(blank=True, null=True)
     github_link = models.URLField(blank=True, null=True)
+    pro_image = models.ImageField(upload_to="project/", default="project.png")
    
     def __str__(self):
         return self.name
@@ -84,7 +85,7 @@ class ProjectImage(models.Model):
     class Meta:
         verbose_plural_name = "ProjectImages"
 
-    image = models.ImageField(upload_to='project_images/')
+    image = models.ImageField(upload_to='project/')
     project = models.ForeignKey(Project, on_delete=models.CASCADE, related_name="images")
 
     def __str__(self):
