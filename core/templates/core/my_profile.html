@@ -1,0 +1,31 @@
+{% extends 'core/base.html'%}
+{% block title %} Profile{% endblock title%}
+
+{% block content %}
+<section>
+    <div>
+        <h2>Profile Details</h2>
+        <h3>Followers:</h3>
+        <p>{{followers}}</p>
+
+        <h3>Following:</h3>
+        <p>{{following}}</p>
+        
+        <h2>Profile Picture:</h2>
+        <img src="{{profile.profile_photo.url}}" alt="ProfilePic">
+        <h3>Bio:</h3>
+        <p>{{profile.bio}}</p>
+        <h3>Tech Stack:</h3>
+        {% for tech in profile.tech_stack.all %}
+        <p>{{tech.name}}</p>
+        {%endfor%}
+        <h3>Profession:</h3>
+        {% for profession in profile.profession.all %}
+        <p>{{profession.name}}</p>
+        {%endfor%}
+    </div>
+    <div>
+        <h2>Projects</h2>
+    </div>
+</section>
+{% endblock content%}

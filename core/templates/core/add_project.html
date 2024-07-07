@@ -1,0 +1,13 @@
+{% extends 'core/base.html'%}
+{% block title %} Add project{% endblock title%}
+
+{% block content %}
+<section>
+    <h2>Add Project</h2>
+    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type="submit">POST</button>
+    </form>
+</section>
+{% endblock content%}
