@@ -9,7 +9,9 @@
 <body>
     <nav>
         <ul>
-            <li><a href="{% url 'logout-user' %}">LOGOUT</a></li>
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'users:logout-user' %}">LOGOUT</a></li>
+            <li><a href="{% url 'users:update-user' %}">Update Personal info</a></li>
         </ul>
     </nav>
     <main>

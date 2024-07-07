@@ -18,6 +18,20 @@ def signup_view(request):
     }
     return render(request, "users/signup.html", context)
 
+def update_user_view(request):
+    user= request.user
+    if request.method=='POST':
+        form = CustomUserChangeForm(request.POST, instance=user)
+        if form.is_valid():
+            form.save()
+            return redirect("home")
+    
+    form = CustomUserChangeForm(instance=user)
+    context ={
+        "form":form,
+    }
+
+    return render(request, "users/update_user.html", context)
 
 def logout_view(request):
     logout(request)
