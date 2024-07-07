@@ -8,15 +8,28 @@
 </head>
 <body>
     <nav>
+        
         <ul>
-            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'core:home' %}">Home</a></li>
             <li><a href="{% url 'users:logout-user' %}">LOGOUT</a></li>
             <li><a href="{% url 'users:update-user' %}">Update Personal info</a></li>
+            <li><a href="{% url 'core:profile-update' %}">Update Profile Info</a></li>
+            <li><a href="{% url 'core:my-profile' %}">My Profile</a></li>
+            <li><a href="{% url 'core:add-project' %}">Add Project</a></li>
+            <li><a href="">Search Project</a></li>
         </ul>
     </nav>
     <main>
-        {% block content %}
-        {% endblock content%}
+        <section>
+            <div>
+                <p>Recommended Accounts</p>
+            </div>
+        </section>
+        <section>
+            {% block content %}
+            {% endblock content%}
+        </section>
+      
     </main>
 </body>
 </html>

@@ -86,6 +86,7 @@ class Project(models.Model):
     def __str__(self):
         return self.name
     
+    
 class ProjectLikes(models.Model):
     class Meta:
         verbose_name_plural = "ProjectLikes"

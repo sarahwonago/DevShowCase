@@ -3,6 +3,19 @@
 
 {% block content %}
 <section>
-    <h2>Welcome {{user.username}} to DevShowCase</h2>
+    <h2>Welcome {{user.first_name}} {{user.last_name}} to DevShowCase</h2>
+    <h3>Feed</h3>
+    {% for project in projects%}
+    <div>
+        <p><a href="{% url 'core:user-profile' project.profile.id %}">{{project.profile.user.username}}</a></p>
+        <img src="{{project.pro_image.url}}" alt="Project Image">
+        <p>{{project.name}}</p>
+        <p>{{project.description}}</p>
+        <hr>
+    </div>
+    {% empty %}
+    <h2>No feeds</h2>
+
+    {% endfor %}
 </section>
 {% endblock content%}

@@ -11,8 +11,9 @@ def signup_view(request):
             profile = Profile.objects.create(user=user)
             profile.save()
             return redirect("login")
+    else:
+        form = CustomUserCreationForm()
 
-    form = CustomUserCreationForm()
     context = {
         "form":form,
     }
@@ -24,9 +25,11 @@ def update_user_view(request):
         form = CustomUserChangeForm(request.POST, instance=user)
         if form.is_valid():
             form.save()
-            return redirect("home")
+            return redirect("core:home")
     
-    form = CustomUserChangeForm(instance=user)
+    else:
+        form = CustomUserChangeForm(instance=user)
+        
     context ={
         "form":form,
     }
