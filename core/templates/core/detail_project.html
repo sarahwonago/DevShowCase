@@ -1,0 +1,23 @@
+{% extends 'core/base.html'%}
+{% block title %} Project Detail{% endblock title%}
+
+{% block content %}
+<section>
+    <div>
+        <h2>Project Detail</h2>
+        
+        <div>
+            <h3>{{project.name}}</h3>
+            <img src="{{project.pro_image.url}}" alt="Project Image">
+            <p>{{project.description}}</p>
+            {% for tech in project.technology_used.all %}
+            <p>{{tech}}</p>
+            {%endfor%}
+            <p><a href="{{project.demo_link}}">Live Demo</a></p>
+            <p><a href="{{project.github_link}}">Github Repo</a</p>
+        </div>
+        <button><a href="">Edit</a></button>
+        <button><a href="">Delete</a></button>
+    </div>
+</section>
+{% endblock content%}
