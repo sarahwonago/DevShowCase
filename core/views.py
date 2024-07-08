@@ -95,7 +95,7 @@ def user_profile_view(request, pk):
             new_followed_profile = Follow.objects.create(follower=user, profile=requested_profile)
             new_followed_profile.save()
             
-        return redirect(f"/user_profile/{pk}/")
+        return redirect(f"/user-profile/{pk}/")
       
 
     if followers:
@@ -157,4 +157,11 @@ def add_project_view(request):
     }
     return render(request, "core/add_project.html", context)
 
+@login_required
+def detail_project_view(request, pk):
+    project = get_object_or_404(Project, id=pk)
+    context = {
+        "project":project,
+    }
 
+    return render(request, "core/detail_project.html", context)

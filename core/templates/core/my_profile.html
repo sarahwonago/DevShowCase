@@ -26,6 +26,15 @@
     </div>
     <div>
         <h2>Projects</h2>
+        {% for project in profile.projects.all %}
+            <div>
+                <p><a href="{% url 'core:detail-project' project.id %}">{{project.name}}</a></p>
+                <img src="{{project.pro_image.url}}" alt="">
+
+            </div>
+        {%empty%}
+        <h2>No projects</h2>
+        {%endfor%}
     </div>
 </section>
 {% endblock content%}

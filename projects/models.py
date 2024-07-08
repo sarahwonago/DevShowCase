@@ -68,6 +68,7 @@ class ProfileLikes(models.Model):
         return self.liker.username
 
     
+    
 class Project(models.Model):
     class Meta:
         verbose_name_plural = "Projects"
